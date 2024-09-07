@@ -1,0 +1,107 @@
+<!DOCTYPE html> 
+<html lang="ru"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Карусель изображений</title> 
+    <style> 
+        body {margin: 0px} 
+        .main {display:grid; grid-template-rows: repeat(100, fr);min-height: 100vh; } 
+        
+        .center {grid-row: 1/95; background-color: rgb(0, 157, 255); position: relative;display: flex;
+            justify-content: center;} 
+        .buttom {grid-row: 95/101; background-color: red; position: relative;} 
+
+        .center img {
+          width: auto; /* Ширина изображения автоматически масштабируется */
+          height: 100%; /* Изображение занимает всю высоту контейнера */
+          object-fit: cover; /* Заполняет всю область, обрезая части, 
+                            если необходимо */
+          position: absolute; /* Позиционирование для размещения изображения */
+          
+        }
+        .im_02 {display: none;}
+        .im_03 {display: none;}
+        
+
+
+        
+        
+
+        
+
+      
+
+        
+     
+         
+    </style> 
+</head> 
+<body> 
+
+    
+    <div class="main"> 
+        
+        <!-- <button style="font-size: 5px;">left</button> -->
+        
+        <div class="center"> 
+            
+            <button class="left_b" style="z-index: 2;position: absolute; left: 0px; height: 100%;background: url('./left.png') no-repeat center; background-size: contain; width: 50px;"onclick="prevImage()"></button>
+            <img id="image" src="A:/ЗАГРУЗКИ/GO-TO-SLEEP_-ANXIETY-_RUS_.jpeg/001.jpg" alt="">
+            
+            <button style="z-index: 2;position: absolute; right: 0px; height: 100%;background: url('./right.png') no-repeat center; background-size: contain; width: 50px; " onclick="nextImage()"></button>
+
+        </div>
+        
+        <!-- <button style="font-size: 5px;">right</button> -->
+        </div> 
+        <div class="buttom"></div>
+    </div> 
+    
+    <script>
+        let currentImageIndex = 0;
+        
+        const images = [
+            "./pages/001.jpg",
+            "./pages/002.jpg",
+            "./pages/003.jpg",
+            "./pages/004.jpg",
+            "./pages/005.jpg",
+            "./pages/006.jpg",
+            "./pages/007.jpg",
+            "./pages/008.jpg",
+            "./pages/009.jpg",
+            "./pages/010.jpg",
+            "./pages/011.jpg",
+            "./pages/012.jpg",
+            "./pages/013.jpg",
+            "./pages/014.jpg",
+            "./pages/015.jpg",
+            "./pages/016.jpg",
+            "./pages/017.jpg",
+            "./pages/018.jpg",
+            "./pages/019.jpg",
+            "./pages/020.jpg",
+        ];
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            document.getElementById("image").src = images[currentImageIndex];
+        }
+
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            document.getElementById("image").src = images[currentImageIndex];
+            
+        }
+
+        
+
+
+        
+        
+
+
+
+    </script>
+</body> 
+</html>
